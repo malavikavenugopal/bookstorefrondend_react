@@ -79,7 +79,7 @@ function Wishlist() {
 
                         <div className="col-md-2  d-flex justify-content-center align-items-center  " style={{ margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
                             <div>
-                                <div class="" >
+                                <div class="  d-flex justify-content-center align-items-center" >
                                     <img height={180} width={208} src={book?.url} /* onClick={() => navigate(`/books/${book?.id}`)} */ />
                                 </div>
                                 <div class="card-text w-100" style={{ margin: '2px' }} >
@@ -90,7 +90,7 @@ function Wishlist() {
                                 </div>
                             
 
-                                    <div class=" d-flex">
+                                    <div class="   d-flex justify-content-center align-items-center">
 
                                         <button style={{ width: "150px", fontSize: '12px' }} className="btn btn-dark" onClick={() => addCart(book)} >ADD TO CART</button>
                                         <button className="btn  " style={{ marginLeft: '20px' }} onClick={() => deletewish(book?.id)} ><i style={{color:'red'}} class="fa-solid fa-trash"></i></button>
