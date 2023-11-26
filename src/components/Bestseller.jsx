@@ -140,8 +140,8 @@ function Bestseller() {
 
                                 <div className="col-md-2  d-flex justify-content-center align-items-center  " style={{ margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
                                     <div  >
-                                        <div class="" >
-                                            <img height={180} width={208} src={book?.url} onClick={() => navigate(`/books/${book?.id}`)} />
+                                        <div class=" d-flex justify-content-center align-items-center " >
+                                            <img class="d-flex justify-content-center align-items-center " height={180} width={208} src={book?.url} onClick={() => navigate(`/books/${book?.id}`)} />
                                         </div>
                                         <div class="card-text w-100" style={{ margin: '2px' }} >
 
@@ -152,7 +152,7 @@ function Bestseller() {
                                         {
                                             user &&
 
-                                            <div class=" d-flex">
+                                            <div class=" d-flex justify-content-center align-items-center ">
 
                                                 <button style={{width:"150px",fontSize:'12px'}} className="btn btn-dark" onClick={()=>addCart(book)} >ADD TO CART</button>
                                                 <button className="btn btn-outline-dark " style={{ marginLeft: '20px' }}  onClick={()=>addWishlist(book)} ><i style={{ color: 'red' }} class="fa-regular fa-heart"></i></button>

@@ -41,19 +41,3 @@ export const getCart = async ()=>{
 export const deleteCart = async (id)=>{
     return await commonAPI('DELETE',`${serverURL}/cart/${id}`,{})
 }
-
-//add item to myorder
-export const addToOrder = async (details)=>{
-    return await commonAPI('POST',`${serverURL}/myorder`,details)
-}
-
-//api to my order
-export const getOrder = async ()=>{
-    return await commonAPI('GET',`${serverURL}/myorder`,"")
-}
-
-//api to delete my order
-
-export const deleteOrder = async (id)=>{
-    return await commonAPI('DELETE',`${serverURL}/myorder/${id}`,{})
-}

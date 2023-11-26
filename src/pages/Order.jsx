@@ -142,7 +142,7 @@ function Order() {
             <div class="jumbotron-fluid">
               <div class="row justify-content-between ">
 
-                <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">TOTAL PAID</h2></div>
+                <div class="col-auto my-auto "><h2 style={{color:'white'}} class="mb-0 font-weight-bold">TOTAL PAID</h2></div>
                 <div class="col-auto my-auto ml-auto"><h1 class="display-3 ">&#8377;{total}</h1></div>
               </div>
               <div class="row mb-3 mt-3 mt-md-0">
