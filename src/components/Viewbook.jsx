@@ -3,15 +3,35 @@ import { Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
+import { addToCart } from '../services/allAPI';
 function Viewbook() {
   const [user, setUser] = useState(null);
   const {id} = useParams();
   const [book, setBook] = useState({})
 
+
+  const addCart = async (book) => {
+    const details = {
+      bname: book.bname,
+      amount: book.amount,
+      url:book.url,
+      author:book.author
+  };
+   
+  
+      const response = await addToCart(details);
+      const { data } = response;
+    
+  
+ 
+    
+  }
+
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/books/${id}`);
+        const response = await axios.get(`https://bookstorebackend-react.onrender.com/books/${id}`);
         console.log(response?.data);
         setBook(response.data);
       } catch (error) {
@@ -32,62 +52,49 @@ function Viewbook() {
   return (
     <div>
         <Header/>
-<br></br><br></br>
-       <div className="container">
+
+       <div  style={{margin:'50px'}}>
 
         <div className="row">
+          <div className="col-md-1"></div>
             <div className="col-md-4">
             <img className='w-100'
-          src={book?.imageUrl}
-          alt={book?.bookName}
+          src={book?.url}
+        
         />
             </div>
 
-            <div className="col-md-8 d-flex justify-content-center  flex-column" style={{fontWeight:'bold'}}>
-<h2>{book?.bookName}</h2>
-<h6 style={{fontWeight:'200'}}>{book?.authorName}</h6>
+            <div className="col-md-6 d-flex justify-content-center  flex-column" style={{fontWeight:'bold'}}>
+              <div className='d-flex justify-content-between'>
+              <h2 style={{color:'black'}}>{book?.bname}</h2>
+<button className='btn btn-success text-light' style={{fontSize:'12px',height:'55px'}}>In Stock</button>
+              </div>
+
+<hr></hr>
+<p  style={{fontWeight:'400',fontSize:"12px"}} >Home/{book.category}/{book.bname}</p>
+<h6 style={{fontWeight:'600'}}>{book?.author}</h6>
 <p style={{fontWeight:'400'}}>
 {book?.description}
 </p>
 <br></br>
-<h6>Language: {book?.language}</h6>
-<h6>Book Length: {book?.pages} pages</h6>
+<h6>Language:<span style={{fontWeight:'300'}}>{book?.lang}</span> </h6>
+<h6>Book Length:<span style={{fontWeight:'300'}}> {book?.pages} pages</span></h6>
+<br></br>
 {
   user&&
-<button className='btn btn-dark' style={{width:'150px',fontSize:"12px"}}>ADD TO  CART</button>
+<button className='btn btn-dark' style={{width:'150px',fontSize:"12px"}} onClick={()=>addCart(book)}>ADD TO  CART</button>
 
 }
 <h3></h3>
+
+
+
+  
             </div>
         </div>
+        
        </div>
-       {/*  <div className="viewParentDiv">
-      <div className="imageShowDiv">
-        <img
-          src={book?.imageUrl}
-          alt={book?.bookName}
-        />
-      </div>
-      <div className="rightSection">
-        <div className="productDetails">
-          <h3>{book?.bookName}</h3>
-          <p>{book?.authorName}</p>
-          <p>{book?.description}</p>
-          <br />
-
-          <p>
-            Language : {book?.language}
-          </p>
-          <p>
-            Book Length : {book?.pages} pages
-          </p>
-          <Button>Add to Cart</Button>
-
-        </div>
-      </div>
-    </div>
-     */}
-     </div>
+       </div>
   )
 }
 
