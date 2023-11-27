@@ -35,7 +35,7 @@ function Addbook() {
       const response = await addBooks(book)
       console.log(response);
       if (response.status >= 200 && response.status < 300) {
-       toast.success(`${response.data.bname} successful`)
+       toast.success(`${response.data.bname} successfully added`)
         setBook({
           bname: "",
           description: "",
@@ -81,7 +81,7 @@ function Addbook() {
           <Card style={{ width: '18rem' }}>
           <i class="fa-solid fa-shield-halved px-2 py-2 fa-2x"></i>
       <Card.Body>
-        <Card.Title  style={{fontSize:"13px"}}>
+        <Card.Title >
         Trusted by 7,00,000+ sellers</Card.Title>
         <Card.Text  style={{fontSize:"13px"}}>
 Many sellers are registered with Book Shelf because they trust Book Shelf.
