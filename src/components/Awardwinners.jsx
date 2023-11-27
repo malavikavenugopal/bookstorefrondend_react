@@ -2,7 +2,9 @@
 import Header from './Header'
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 import {  addToCart, addToWishlist, getAllBooks } from '../services/allAPI';
 function Awardwinners(){
   
@@ -49,7 +51,7 @@ function Awardwinners(){
         const existingBook = wishArray.find((wishlistItem) => wishlistItem.bname === details.bname);
     
         if (existingBook) {
-            alert('Book already exists in the wishlist');
+            toast.warning('Book already exists in the wishlist');
         } else {
             const response = await addToWishlist(details);
             const { data } = response;
@@ -79,7 +81,7 @@ function Awardwinners(){
         <br></br>
         <br></br>
         <div className="d-flex d-flex justify-content-center flex-column align-items-center">
-                <h3 > Award Winners <i class="fa-solid fa-award"></i></h3> 
+                <h3 > Award Winners</h3> 
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '180px', backgroundColor: '#7c4dff', height: '2px' }} />
 
                 
@@ -91,7 +93,7 @@ function Awardwinners(){
                         allBook?.filter((items)=>(items.category==="Award Winners")).map((book) => {
                             return (
 
-                                <div className="col-md-2   d-flex justify-content-center align-items-center  " style={{ margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
+                                <div className="col-md-2   d-flex justify-content-center align-items-center  " style={{borderRadius:"10px", margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
                                     <div  >
                                         <div class=" d-flex justify-content-center align-items-center " >
                                             <img height={180} width={208} src={book?.url} onClick={() => navigate(`/books/${book?.id}`)} />
@@ -108,7 +110,7 @@ function Awardwinners(){
                                             <div class=" d-flex justify-content-center align-items-center ">
 
                                                 <button style={{width:"150px",fontSize:'12px'}} className="btn btn-dark" onClick={()=>addCart(book)} >ADD TO CART</button>
-                                                <button className="btn btn-outline-dark " style={{ marginLeft: '20px' }}  onClick={()=>addWishlist(book)}><i style={{ color: 'red' }} class="fa-regular fa-heart"></i></button>
+                                                <button className="btn " style={{ marginLeft: '20px' }}  onClick={()=>addWishlist(book)}><i style={{ color: 'red' }} class="fa-regular fa-heart"></i></button>
 
 
 
@@ -123,6 +125,7 @@ function Awardwinners(){
                         <p>Nothing to display</p>
                         }
                 </div>
+                <ToastContainer position='top-center' theme='colored' autoClose={2000} />
 
     </div>
    

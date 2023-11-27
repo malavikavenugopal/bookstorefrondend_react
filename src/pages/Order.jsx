@@ -44,11 +44,11 @@ function Order() {
 
 
   const handlecart = async () => {
-    await axios.get('https://bookstorebackend-react.onrender.com/cart')
+    await axios.get('http://localhost:5000/cart')
       .then(res => {
         const records = res.data;
         const deletePromises = records.map(record =>
-          axios.delete(`https://bookstorebackend-react.onrender.com/cart/${record.id}`)
+          axios.delete(`http://localhost:5000/cart/${record.id}`)
         );
 
         return Promise.all(deletePromises);
@@ -103,12 +103,12 @@ function Order() {
                               <div> <h6 class="mb-0" style={{ fontSize: '14px' }}>{items.bname}</h6>  </div>
 
 
-                              <div ><h6 class="mb-0">&#8377;{items.amount}</h6>
+                              <div ><h6 class="mb-0">Rs. {items.amount}</h6>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <hr class="my-3 " />
+                      
 
                       </div>
                     </div>
@@ -123,7 +123,7 @@ function Order() {
                 <div class="row justify-content-between">
                   <div class="col-auto"><p class="mb-1 text-dark"><b>Order Details</b></p></div>
                   <div class="flex-sm-col text-right col"> <p class="mb-1"><b>Total</b></p> </div>
-                  <div class="flex-sm-col col-auto"> <p class="mb-1">&#8377;{total}</p> </div>
+                  <div class="flex-sm-col col-auto"> <p class="mb-1">Rs. {total}</p> </div>
                 </div>
 
 
@@ -143,7 +143,7 @@ function Order() {
               <div class="row justify-content-between ">
 
                 <div class="col-auto my-auto "><h2 style={{color:'white'}} class="mb-0 font-weight-bold">TOTAL PAID</h2></div>
-                <div class="col-auto my-auto ml-auto"><h1 class="display-3 ">&#8377;{total}</h1></div>
+                <div class="col-auto my-auto ml-auto"><h1 class="display-3 ">Rs. {total}</h1></div>
               </div>
               <div class="row mb-3 mt-3 mt-md-0">
                 <div class="col-auto border-line"> <small class="text-white">PAN:AA02hDW7E</small></div>

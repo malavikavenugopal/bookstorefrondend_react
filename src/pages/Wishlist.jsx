@@ -61,23 +61,27 @@ function Wishlist() {
 
     
 
-            <div className="row d-flex justify-content-center align-items-center " >
+            <div className="row d-flex justify-content-center align-items-center " style={{marginTop:'20px'}} >
               <br></br>
-<div className="row">
 
 
-<h3 style={{marginLeft:'45px',marginTop:'30px'}} class="fw-bold mb-0 text-black">Wishlist</h3>
 
-</div>
-             
+
+
+             {allWish?.length > 0 &&
+                  <h3  class="fw-bold mb-0 text-black text-center">Wishlist</h3>
+             }
           
                 
                 {allWish?.length > 0 ?
-
+  
                     allWish?.map((book) => (
-
+<>
+                      
 
                         <div className="col-md-2  d-flex justify-content-center align-items-center  " style={{ margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
+                            
+                            
                             <div>
                                 <div class="  d-flex justify-content-center align-items-center" >
                                     <img height={180} width={208} src={book?.url} /* onClick={() => navigate(`/books/${book?.id}`)} */ />
@@ -104,9 +108,11 @@ function Wishlist() {
                                 </div>
                         </div>
 
-
+                        </>
             )) :
-            <p>Nothing to display</p>
+          <div className="d-flex justify-content-center align-items-center vh-100">
+<h2 className='text-dark'>Your Wishlist is empty!</h2>
+          </div>
                 }
         </div >
        

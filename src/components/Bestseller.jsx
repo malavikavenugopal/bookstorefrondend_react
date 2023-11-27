@@ -3,7 +3,8 @@ import Header from './Header'
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { addBooks, addToCart, addToWishlist, getAllBooks } from '../services/allAPI';
 function Bestseller() {
   
@@ -64,7 +65,7 @@ function Bestseller() {
       const existingBook = wishArray.find((wishlistItem) => wishlistItem.bname === details.bname);
   
       if (existingBook) {
-          alert('Book already exists in the wishlist');
+        toast.warning('Book already exists in the wishlist');
       } else {
           const response = await addToWishlist(details);
           const { data } = response;
@@ -138,7 +139,7 @@ function Bestseller() {
                         allBook?.filter((items)=>(items.category==="Best Sellers")).map((book) => {
                             return (
 
-                                <div className="col-md-2  d-flex justify-content-center align-items-center  " style={{ margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
+                                <div className="col-md-2  d-flex justify-content-center align-items-center  " style={{borderRadius:"10px", margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
                                     <div  >
                                         <div class=" d-flex justify-content-center align-items-center " >
                                             <img class="d-flex justify-content-center align-items-center " height={180} width={208} src={book?.url} onClick={() => navigate(`/books/${book?.id}`)} />
@@ -171,7 +172,8 @@ function Bestseller() {
                         }
                 </div>
 
-               
+                <ToastContainer position='top-center' theme='colored' autoClose={2000} />
+     
     </div>
    
   )

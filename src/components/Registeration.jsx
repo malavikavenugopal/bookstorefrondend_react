@@ -3,6 +3,8 @@ import {  Button,  Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Registeration() {
   const [formData, setFormData] = useState({
@@ -80,7 +82,7 @@ function Registeration() {
 
       axios.post('https://bookstorebackend-react.onrender.com/users', formData)
         .then(result => {
-          alert("Registered Successfully")
+          toast.success("Registered Successfully")
           navigate('/login')
         })
         .catch(err => console.log(err))
@@ -229,7 +231,7 @@ function Registeration() {
         </div>
       </section>
 
-      
+      <ToastContainer position='top-center' theme='colored' autoClose={2000} />
     </div>
   )
 }

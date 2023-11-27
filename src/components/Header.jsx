@@ -71,15 +71,11 @@ function Header() {
               <NavDropdown.Item href="#action/3.2">
                 {
                   user &&
-                  <span > <Link to='/addbook' style={{ textDecoration: 'none', color: 'black' }} ><i class="fa-solid fa-book"></i>Start Selling</Link> </span>
+                  <span > <Link to='/addbook' style={{ textDecoration: 'none', color: 'black' }} ><i class="fa-solid fa-book"></i> Start Selling</Link> </span>
                 }
 
               </NavDropdown.Item>
-            {/*   <NavDropdown.Item href="#action/3.3">{
-                user &&
-            <Link to='/myorder' style={{textDecoration:"none",color:'black'}}><span > <i class="fa-solid fa-bag-shopping"></i> Orders</span></Link>    
-              }
-              </NavDropdown.Item> */}
+          
               <NavDropdown.Item href="#action/3.3">{
                 user &&
                <Link to='/wishlist' style={{textDecoration:"none",color:'black'}}><span> <i class="fa-solid fa-heart"></i> Wishlist</span></Link> 
@@ -141,20 +137,7 @@ function Header() {
        
 
 
-      {/*   
-                <Form className='search w-100' inline style={{ marginLeft: '90px' }}>
-                  <InputGroup className='d-flex'>
-                    <InputGroup.Text style={{ backgroundColor: 'black', color: 'white' }} id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></InputGroup.Text>
-                    <Form.Control
-
-                      placeholder="Search by title"
-                      aria-label="Username"
-
-                      aria-describedby="basic-addon1"
-                    />
-                  </InputGroup>
-                </Form>
-         */}
+    
 
     </div>
   )

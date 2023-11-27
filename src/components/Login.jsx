@@ -3,7 +3,8 @@ import {  Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 function Login() {
     const [formData,setFormData]=useState({
         email:'',
@@ -44,11 +45,11 @@ function Login() {
                    result.data.map(user=> {
                     if(user.email === formData.email){
                         if(user.password === formData.password){
-                            alert("Login Successfully")
+                           toast.success("Login Successfully")
                             setUser({ firstName: user.firstname, lastName: user.lastname,email:user.email });
                            
                            
-                           //to store name in (welcome part)home page 
+                        //to store name in (welcome part)home page 
                             localStorage.setItem('user', JSON.stringify({ firstName: user.firstname, lastName: user.lastname,email:user.email }));
                             navigate('/')
                         } else{
@@ -94,7 +95,7 @@ function Login() {
 
           <Form style={{width: '23rem'}}  onSubmit={handleSubmit} >
 
-            <h2 class="fw-bold mb-5"  >Log in</h2>
+            <h2 class="fw-bold mb-5 text-dark"  >Log in</h2>
 
             <Form.Group className="mb-4" controlId="formBasicEmail">
                       <Form.Label className="text-center">
@@ -137,7 +138,7 @@ function Login() {
     </div>
   </div>
 </section>
-
+<ToastContainer position='top-center' theme='colored' autoClose={2000} />
   </div>
   )
 }

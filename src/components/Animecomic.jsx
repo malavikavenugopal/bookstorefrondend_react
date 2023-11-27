@@ -3,7 +3,8 @@ import Header from './Header'
 import React, { useEffect } from 'react'
 
 import { useState } from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 
 import { addBooks, addToCart, addToWishlist, getAllBooks } from '../services/allAPI';
@@ -57,7 +58,7 @@ function Animecomic() {
         const existingBook = wishArray.find((wishlistItem) => wishlistItem.bname === details.bname);
     
         if (existingBook) {
-            alert('Book already exists in the wishlist');
+           toast.warning('Book already exists in the wishlist');
         } else {
             const response = await addToWishlist(details);
             const { data } = response;
@@ -92,41 +93,41 @@ function Animecomic() {
         <img className='w-100' src='https://cdnmedia.atlanticbooks.com/media/contentImages/home/peacock-banner.jpg'/>
         <br></br>
         <br></br>
-        <div className="container-fluid">
-                <h3 style={{fontWeight:"bold",fontSize:'30px'}}>Anime Comics</h3> 
-                <hr class="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '180px', backgroundColor: '#7c4dff', height: '2px' }} />
+       
+        <div className="d-flex justify-content-center flex-column align-items-center">
+                <h3 > Anime Comics</h3> 
+             
+                <hr class="mb-4 mt-0 d-inline-block mx-auto " style={{ width: '190px', backgroundColor: '#7c4dff', height: '2px' }} />
+                {/* <Button style={{backgroundColor:'black'}} onClick={handleShow}>
+                <i class="fa-solid fa-circle-plus"></i>
+              </Button> */}
         </div>
-                <div className="row  d-flex justify-content-center align-items-center">
+       
+                <div className="row d-flex justify-content-center align-items-center ">
     
                         { allBook.length>0?
 
                         allBook?.filter((items)=>(items.category==="Anime Comics")).map((book) => {
                             return (
 
-                                <div className="col-md-2   d-flex justify-content-center align-items-center  " style={{ margin: '10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
+                                <div className="col-md-2  d-flex justify-content-center align-items-center  " style={{ margin: '10px',borderRadius:'10px', borderStyle: 'solid', borderWidth: "0.3px", borderColor: 'grey', width: '13 rem', padding: '10px' }}>
                                     <div  >
                                         <div class=" d-flex justify-content-center align-items-center " >
-                                            <img height={180} width={208} src={book?.url} onClick={() => navigate(`/books/${book?.id}`)} />
+                                            <img class="d-flex justify-content-center align-items-center " height={180} width={208} src={book?.url} onClick={() => navigate(`/books/${book?.id}`)} />
                                         </div>
-                                        <div class="card-text w-100 d-flex justify-content-between" style={{ margin: '2px' }} >
-<div>
-<h6 style={{ fontSize: '16px' }}>{book?.bname}</h6>
+                                        <div class="card-text w-100" style={{ margin: '2px' }} >
+
+                                            <h6 style={{ fontSize: '16px' }}>{book?.bname}</h6>
                                             <p style={{ color: 'grey', fontSize: '14px' }}>{book?.author}</p>
                                             <h6>${book?.amount}</h6>
-</div>
-                                          
-
-                                            <div>
-                                            <button className="btn" style={{ marginLeft: '20px' }}  onClick={()=>addWishlist(book)}><i style={{ color:'red'}} class="fa-regular fa-heart"></i></button>
-                                            </div>
                                         </div>
                                         {
                                             user &&
 
-                                            <div class="  d-flex justify-content-center align-items-center ">
+                                            <div class=" d-flex justify-content-center align-items-center ">
 
-                                                <button style={{width:"210px",fontSize:'12px'}} className="btn btn-dark " onClick={()=>addCart(book)} >ADD TO CART</button>
-                                               
+                                                <button style={{width:"150px",fontSize:'12px'}} className="btn btn-dark" onClick={()=>addCart(book)} >ADD TO CART</button>
+                                                <button className="btn " style={{ marginLeft: '20px' }}  onClick={()=>addWishlist(book)} ><i style={{ color: 'red' }} class="fa-regular fa-heart"></i></button>
 
 
 
@@ -140,9 +141,9 @@ function Animecomic() {
                         }):
                         <p>Nothing to display</p>
                         }
-               
+                </div>
+                <ToastContainer position='top-center' theme='colored' autoClose={2000} />
 
-    </div>
     </div>
   )
 }

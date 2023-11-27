@@ -67,7 +67,6 @@ function Viewbook() {
             <div className="col-md-6 d-flex justify-content-center  flex-column" style={{fontWeight:'bold'}}>
               <div className='d-flex justify-content-between'>
               <h2 style={{color:'black'}}>{book?.bname}</h2>
-<button className='btn btn-success text-light' style={{fontSize:'12px',height:'55px'}}>In Stock</button>
               </div>
 
 <hr></hr>
