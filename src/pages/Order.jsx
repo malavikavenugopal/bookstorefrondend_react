@@ -44,11 +44,11 @@ function Order() {
 
 
   const handlecart = async () => {
-    await axios.get('http://localhost:5000/cart')
+    await axios.get('https://bookstorebackend-react.onrender.com/cart')
       .then(res => {
         const records = res.data;
         const deletePromises = records.map(record =>
-          axios.delete(`http://localhost:5000/cart/${record.id}`)
+          axios.delete(`https://bookstorebackend-react.onrender.com/cart/${record.id}`)
         );
 
         return Promise.all(deletePromises);
