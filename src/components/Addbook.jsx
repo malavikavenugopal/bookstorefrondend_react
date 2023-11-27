@@ -46,6 +46,7 @@ function Addbook() {
           pages: "",
           url: ""
         })
+        handleClose()
       }
       else {
         console.log(response);

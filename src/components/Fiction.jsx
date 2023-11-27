@@ -118,7 +118,7 @@ function Fiction() {
 
                                             <h6 style={{ fontSize: '16px' }}>{book?.bname}</h6>
                                             <p style={{ color: 'grey', fontSize: '14px' }}>{book?.author}</p>
-                                            <h6>${book?.amount}</h6>
+                                            <h6>Rs. {book?.amount}</h6>
                                         </div>
                                         {
                                             user &&
