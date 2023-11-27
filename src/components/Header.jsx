@@ -43,10 +43,10 @@ function Header() {
           <Nav className="ms-auto">
 
             <Nav.Link href="/" style={{ fontSize: "15px", marginLeft: '15px' }}>HOME</Nav.Link>
-        {/*     <Nav.Link href="" style={{ fontSize: "15px", marginLeft: '15px' }}>CATEGORIES</Nav.Link>
+           {/*   <Nav.Link href="" style={{ fontSize: "15px", marginLeft: '15px' }}>CATEGORIES</Nav.Link> */}
           
             
-            <Nav.Link href="/book" style={{ fontSize: "15px", marginLeft: '15px' }}>BOOKS</Nav.Link> */}
+            <Nav.Link href="/book" style={{ fontSize: "15px", marginLeft: '15px' }}>BOOKS</Nav.Link> 
 
             <NavDropdown title="ACCOUNT" style={{ fontSize: "15px", marginLeft: '15px' }} id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
