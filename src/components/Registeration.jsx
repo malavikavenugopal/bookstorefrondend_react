@@ -78,7 +78,7 @@ function Registeration() {
 
 
 
-      axios.post('http://localhost:5000/users', formData)
+      axios.post('https://bookstorebackend-react.onrender.com/users', formData)
         .then(result => {
           alert("Registered Successfully")
           navigate('/login')
