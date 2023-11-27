@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Books() {
+  const [user, setUser] = useState(null);
   const [search, setSearch] = useState('');
   //state to add to wishlist
   const [wish,setWish] = useState({})
@@ -26,7 +27,10 @@ const [allBook,setAllBook] = useState([])
 console.log(allBook);
 useEffect(()=>{
   viewAllBook()
-
+  const storedUser = localStorage.getItem('user');
+  if (storedUser) {
+      setUser(JSON.parse(storedUser));
+  }
 },[])
 
 
@@ -102,7 +106,8 @@ const addCart = async (book) => {
                                             <p style={{ color: 'grey', fontSize: '14px' }}>{book?.author}</p>
                                             <h6>Rs.{book?.amount}</h6>
                                         </div>
-                                      
+                                        {
+                                            user &&
 
                                             <div class=" d-flex justify-content-center align-items-center ">
 
@@ -113,6 +118,7 @@ const addCart = async (book) => {
 
 
                                             </div>
+}
 
                                     </div>
                                 </div>
