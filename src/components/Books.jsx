@@ -87,7 +87,7 @@ const addCart = async (book) => {
   </form>
 </div>
 
-<div className="row d-flex justify-content-center align-items-center ">
+<div className="row d-flex justify-content-center align-items-center  " style={{minHeight:'600px'}}>
 {allBook
               .filter((item) => {
                 return search.toLowerCase() === ''
